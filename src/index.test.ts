@@ -1,3 +1,5 @@
-test("dummy", () => {
-  expect(2 + 2).toEqual(4);
+import Client from "./index";
+
+test("imports", () => {
+  expect(typeof Client).toEqual("function");
 });
