@@ -13,3 +13,11 @@ import EtherscanClient from '@nexys/etherscan-sdk';
 
 ...
 ```
+
+
+## Official API doc
+
+https://docs.etherscan.io/api-endpoints/
+
+seems to have the same interface but no restriction [not tested yet]
+https://blockscout.com/eth/mainnet/api-docs
