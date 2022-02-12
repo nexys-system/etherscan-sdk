@@ -4,15 +4,17 @@ const apikey = "";
 
 import * as T from "./type";
 
-const host = "https://api.etherscan.io/api";
+const hostEtherscan = "https://api.etherscan.io/api";
 
 // MOONEY
 //const address = '0x2b837d661b9382a67a197ce9074d7788be3edf79';
 
 class Client {
   apikey: string;
-  constructor(apikey: string) {
+  host: string;
+  constructor(apikey: string, host: string = hostEtherscan) {
     this.apikey = apikey;
+    this.host = host;
   }
 
   getPreParams = (): Omit<T.Params, "address"> => ({
@@ -35,7 +37,7 @@ class Client {
     const params = this.getParams(options);
     //console.log(params);
     const url =
-      host +
+      this.host +
       "?" +
       Object.entries(params)
         .map(([k, v]) => [k, encodeURIComponent(v)].join("="))
@@ -93,7 +95,7 @@ class Client {
     const apikey = this.apikey;
 
     const url =
-      host +
+      this.host +
       "?" +
       Object.entries({ ...paramsIn, apikey })
         .map(([k, v]) => [k, encodeURIComponent(v)].join("="))
@@ -106,7 +108,7 @@ class Client {
   getBalances = async (addresses: string[]) => {
     const apikey = this.apikey;
     const url =
-      host +
+      this.host +
       "?" +
       Object.entries({
         module: "account",
