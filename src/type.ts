@@ -4,7 +4,7 @@ export interface ParamsCore {
 }
 
 export interface ParamsOptions {
-  action: "txlist" | "tokentx" | "tokennfttx";
+  action: "txlist" | "tokentx" | "tokennfttx" | 'txlistinternal';
   address?: string;
   contractaddress?: string;
   page?: number;
